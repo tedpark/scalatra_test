@@ -3,15 +3,25 @@ package com.example.app
 import org.scalatra._
 import scalate.ScalateSupport
 
-class MyScalatraServlet extends SclatraStack {
+import org.scalatra.json._
+
+import org.json4s._
+import org.json4s.JsonDSL._
+
+
+class MyScalatraServlet extends SclatraStack with JacksonJsonSupport {
+
+  implicit val jsonFormats = DefaultFormats
 
   get("/") {
-    <html>
-      <body>
-        <h1>Hello, world!</h1>
-        Say <a href="hello-scalate">hello to Scalate</a>.
-      </body>
-    </html>
+    val productJson =
+
+
+      ("label" -> "Foo bar") ~
+      ("fairTrade" -> true) ~
+      ("tags" -> List("bio", "chocolate"))
+
+    productJson
   }
 
 }
