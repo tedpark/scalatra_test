@@ -22,6 +22,8 @@ class MyScalatraServlet extends SclatraStack with JacksonJsonSupport {
       ("tags" -> List("bio", "chocolate"))
 
     productJson
+
+
   }
 
 }
